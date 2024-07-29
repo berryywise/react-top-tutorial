@@ -1,0 +1,10 @@
+.personalia-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #e9fdfa;
+}
+
+.personalia-title {
+    font-weight: 600;
+}
