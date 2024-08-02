@@ -78,6 +78,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #e9fdfa;
+  height: 100%;
   padding: 20px;
 }
 
@@ -85,10 +86,15 @@ body {
   font-weight: 600;
 }
 
-.personalia-title.personalia {
+.personalia-title.personalia, .experience-main-title, .education-main-title, .courses-main-title {
   font-size: larger;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.experience-main-title, .education-main-title, .courses-main-title {
+  margin-top: 20px;
 }
 
 .about-container {
@@ -101,27 +107,31 @@ body {
   border: solid;
 }
 
-.experience-container {
+.experience-container, .education-container, .courses-container {
   align-self: flex-start;
-  border-bottom: solid;
+  border-bottom: solid 1px black;
   padding-bottom: 15px;
   width: 100%;
 }
 
-.experience-header {
+.courses-container {
+  border-bottom: none;
+}
+
+.experience-header, .education-header, .courses-header {
   display: flex;
   justify-content: space-between;
 }
 
-.experience-date {
+.experience-date, .education-date, .courses-date {
   font-size: smaller;
 }
 
-.experience-body {
+.experience-body, .education-body, .courses-body {
   font-size: smaller;
 }
 
-.experience-title {
+.experience-title, .education-title, .courses-title {
 
   font-size: medium;
   font-weight: 600;

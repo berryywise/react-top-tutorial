@@ -2,6 +2,7 @@
 export default function Experience() {
   return (
     <div className='experience-container'>
+      <div className="experience-main-title">Work Experience</div>
         <div className='experience-header'>
           <p>Financieel Medewerker</p>
           <p className="experience-date">dec. 2017 - heden</p>
@@ -43,8 +44,6 @@ export default function Experience() {
             <p>- Opmaken van facturen</p>
             <p>- Beantwoorden van inzagen</p>
         </div>
-
-        
     </div>
   )
 }
