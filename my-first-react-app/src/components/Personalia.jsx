@@ -21,20 +21,20 @@ export default function Personalia() {
             <p>Dutch</p>
         </div>
         <div className='personalia-interests'>
-            <p className="personalia-title">Interests</p>
+            <p className="personalia-title main-title interests">Interests</p>
             <p>Learning</p>
             <p>Traveling</p>
             <p>Working out</p>
         </div>
         <div className='personalia-skills'>
-            <p className="personalia-title">Skills</p>
+            <p className="personalia-title main-title skills">Skills</p>
             <p>SAP</p>
             <p>Microsoft Visual Studio Code</p>
             <p>React</p>
             <p>Javascript</p>
         </div>
         <div className='personalia-languages'>
-            <p className="personalia-title">Languages</p>
+            <p className="personalia-title main-title languages">Languages</p>
             <p>Dutch</p>
             <p>English</p>
             <p>Turkish</p>

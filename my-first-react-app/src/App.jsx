@@ -13,8 +13,8 @@ function App() {
       <div className='sidebar'>
       <Personalia />
       </div>
-      <div className='main-content'>
       <Headerbanner />
+      <div className='main-content'>
       <About />
       <Experience />
       <Education />
@@ -26,3 +26,4 @@ function App() {
 }
 
 export default App
+

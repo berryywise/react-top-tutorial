@@ -10,11 +10,13 @@ export default function Experience() {
         <div className='experience-body'>
             <p className="experience-title">Philips Electronics Eindhoven</p>
             <p className="experience-discription" >Als financieel medewerker was ik verantwoordelijk voor:</p>
-            <p>- Salarisadministratie</p>
-            <p>- Rapporteer en verkoopcijfers</p>
-            <p>- Controleren en verwerken van financien</p>
-            <p>- Opmaken van facturen</p>
-            <p>- Beantwoorden van inzagen</p>
+            <ul>
+            <li>Salarisadministratie</li>
+            <li>Rapporteer en verkoopcijfers</li>
+            <li>Controleren en verwerken van financien</li>
+            <li>Opmaken van facturen</li>
+            <li>Beantwoorden van inzagen</li>
+            </ul>
         </div>
 
         <div className='experience-header'>
@@ -24,11 +26,13 @@ export default function Experience() {
         <div className='experience-body'>
             <p className="experience-title">Philips Electronics Eindhoven</p>
             <p className="experience-discription" >Als financieel medewerker was ik verantwoordelijk voor:</p>
-            <p>- Salarisadministratie</p>
-            <p>- Rapporteer en verkoopcijfers</p>
-            <p>- Controleren en verwerken van financien</p>
-            <p>- Opmaken van facturen</p>
-            <p>- Beantwoorden van inzagen</p>
+            <ul>
+            <li>Salarisadministratie</li>
+            <li>Rapporteer en verkoopcijfers</li>
+            <li>Controleren en verwerken van financien</li>
+            <li>Opmaken van facturen</li>
+            <li>Beantwoorden van inzagen</li>
+            </ul>
         </div>
 
         <div className='experience-header'>
@@ -38,11 +42,13 @@ export default function Experience() {
         <div className='experience-body'>
             <p className="experience-title">Philips Electronics Eindhoven</p>
             <p className="experience-discription" >Als financieel medewerker was ik verantwoordelijk voor:</p>
-            <p>- Salarisadministratie</p>
-            <p>- Rapporteer en verkoopcijfers</p>
-            <p>- Controleren en verwerken van financien</p>
-            <p>- Opmaken van facturen</p>
-            <p>- Beantwoorden van inzagen</p>
+            <ul>
+            <li>Salarisadministratie</li>
+            <li>Rapporteer en verkoopcijfers</li>
+            <li>Controleren en verwerken van financien</li>
+            <li>Opmaken van facturen</li>
+            <li>Beantwoorden van inzagen</li>
+            </ul>
         </div>
     </div>
   )
