@@ -1,29 +1,27 @@
-import About from './components/About'
-import Courses from './components/Courses'
-import Education from './components/Education'
-import Experience from './components/Experience'
-import Headerbanner from './components/Headerbanner'
-import Personalia from './components/Personalia'
+import About from "./components/About";
+import Courses from "./components/Courses";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import Headerbanner from "./components/Headerbanner";
+import Personalia from "./components/Personalia";
 
 function App() {
-
   return (
     <>
-    <div className='main'>
-      <div className='sidebar'>
-      <Personalia />
+      <div className="main">
+        <div className="sidebar">
+          <Personalia />
+        </div>
+        <Headerbanner />
+        <div className="main-content">
+          <About />
+          <Experience />
+          <Education />
+          <Courses />
+        </div>
       </div>
-      <Headerbanner />
-      <div className='main-content'>
-      <About />
-      <Experience />
-      <Education />
-      <Courses />
-      </div>
-    </div>
     </>
-  )
+  );
 }
 
-export default App
-
+export default App;
