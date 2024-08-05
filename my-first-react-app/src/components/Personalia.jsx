@@ -128,13 +128,18 @@ export default function Personalia() {
                 { interestEditing ? 
                 <>
                 {interests.map((interest, index) => (
-                    <p key={index}>{interest}</p>
+                    <div className="item-list-row" key={index}>
+                    <p>{interest}</p>
+                    <img onClick={() => handleDelete(index, interests, setInterests)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
+                    </div>
                 ))}
                 <input type="text" placeholder="Add new interest" value={newInterest} onChange={e => setNewInterest(e.target.value)}/>
                 </> : 
                 <>
                 {interests.map((interest, index) => (
-                    <p key={index}>{interest}</p>
+                    <div key={index}>
+                        <p>{interest}</p>
+                    </div>
                 ))}
                 </>
             }
@@ -147,17 +152,22 @@ export default function Personalia() {
             {skillsEditing ? <button onClick={() => setSkillsEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setSkillsEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
             
-            <form onSubmit={handleSkillEdit}>
+            <form className="item-list" onSubmit={handleSkillEdit}>
                 { skillsEditing ? 
                 <>
                 {skills.map((skill, index) => (
-                    <p key={index}>{skill}</p>
+                    <div className="item-list-row" key={index}>
+                        <p>{skill}</p>
+                        <img onClick={() => handleDelete(index, skills, setSkills)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
+                    </div>
                 ))}
                 <input type="text" placeholder="Add new skill" value={newSkills} onChange={e => setNewSkills(e.target.value)}/>
                 </> : 
                 <>
                 {skills.map((skill, index) => (
-                    <p key={index}>{skill}</p>
+                    <div key={index}>
+                        <p>{skill}</p>
+                    </div>
                 ))}
                 </>
             }
