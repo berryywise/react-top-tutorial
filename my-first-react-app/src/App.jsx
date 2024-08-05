@@ -10,7 +10,7 @@ function App() {
     <>
       <div className="main">
         <div className="sidebar">
-          <Personalia />
+        <Personalia />
         </div>
         <Headerbanner />
         <div className="main-content">

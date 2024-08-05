@@ -2,7 +2,6 @@ import { useState } from "react"
 
 export default function Personalia() {
 
-    const [isEditing, setIsEditing] = useState(false);
     const [personalia, setPersonalia] = useState({
         name: "John Reeves",
         address: "Beestreet 55 - Amsterdam",
@@ -12,15 +11,22 @@ export default function Personalia() {
         licenses: "B - BA",
         nationality: "Dutch"
     })
-
-    const [interestEditing, setInterestEditing] = useState(false)
+    
+    
     const [newInterest, setNewInterest] = useState("");
+    const [newSkills, setNewSkills] = useState("");
+    const [newLanguages, setNewLanguages] = useState("");
+    
+    
     const [interests, setInterests] = useState(["Learning", "Traveling", "Working Out"])
+    const [skills, setSkills] = useState(["SAP", "Microsoft Virtual Studio", "Canva", "Adobe Photoshop", "React"])
+    const [languages, setLanguages] = useState(["Dutch", "English", "Turkish", "Spanish"])
     
     
+    const [isEditing, setIsEditing] = useState(false);
+    const [interestEditing, setInterestEditing] = useState(false)
     const [skillsEditing, setSkillsEditing] = useState(false)
     const [languagesEditing, setLanguagesEditing] = useState(false)
-    
 
     const handlePersonaliaEdit = (e) => {
 
@@ -34,15 +40,38 @@ export default function Personalia() {
 
         e.preventDefault();
 
-        console.log(newInterest)
+        setInterests([...interests, newInterest]);
+        setInterestEditing(false);
+        setNewInterest("");
         
-        //TODO: implement interest edit submit
+    }
+
+    const handleSkillEdit = (e) => {
+
+        e.preventDefault();
+
+        setSkills([...skills, newSkills]);
+        setSkillsEditing(false);
+        setNewSkills("");
 
     }
 
+    const handleLanguagesEdit = (e) => {
 
+        e.preventDefault();
+
+        setLanguages([...languages, newLanguages])
+        setLanguagesEditing(false);
+        setNewLanguages("");
+        
+    }
+
+    const handleDelete = (index, state, setState,) => {
+        setState(state.filter((_, i) => i !== index))
+    }
 
   return (
+    
     <div className='personalia-container'>
         <div className='personalia-info'>
             <form onSubmit={e => {e.preventDefault()}}>
@@ -89,6 +118,7 @@ export default function Personalia() {
              }
             </form>
         </div>
+
         <div className='personalia-interests'>
             <div className="personalia-header-edit">
             <p className="personalia-title main-title interests">Interests</p>
@@ -97,6 +127,9 @@ export default function Personalia() {
             <form onSubmit={handleInterestEdit}>
                 { interestEditing ? 
                 <>
+                {interests.map((interest, index) => (
+                    <p key={index}>{interest}</p>
+                ))}
                 <input type="text" placeholder="Add new interest" value={newInterest} onChange={e => setNewInterest(e.target.value)}/>
                 </> : 
                 <>
@@ -107,25 +140,56 @@ export default function Personalia() {
             }
             </form>
         </div>
+
         <div className='personalia-skills'>
             <div className="personalia-header-edit" >
             <p className="personalia-title main-title skills">Skills</p>
             {skillsEditing ? <button onClick={() => setSkillsEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setSkillsEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
-            <p>SAP</p>
-            <p>Microsoft Visual Studio Code</p>
-            <p>React</p>
-            <p>Javascript</p>
+            
+            <form onSubmit={handleSkillEdit}>
+                { skillsEditing ? 
+                <>
+                {skills.map((skill, index) => (
+                    <p key={index}>{skill}</p>
+                ))}
+                <input type="text" placeholder="Add new skill" value={newSkills} onChange={e => setNewSkills(e.target.value)}/>
+                </> : 
+                <>
+                {skills.map((skill, index) => (
+                    <p key={index}>{skill}</p>
+                ))}
+                </>
+            }
+            </form>
         </div>
+
         <div className='personalia-languages'>
             <div className="personalia-header-edit">
             <p className="personalia-title main-title languages">Languages</p>
         {languagesEditing ? <button onClick={() => setLanguagesEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setLanguagesEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
-            <p>Dutch</p>
-            <p>English</p>
-            <p>Turkish</p>
-            <p>Spanish</p>
+            <form className="item-list" onSubmit={handleLanguagesEdit}>
+                { languagesEditing ? 
+                <>
+                {languages.map((language, index) => (
+                    
+                    <div className="item-list-row" key={index}>
+                        <p>{language}</p>
+                        <img onClick={() => handleDelete(index, languages, setLanguages)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
+                    </div>
+                ))}
+                <input type="text" placeholder="Add new language" value={newLanguages} onChange={e => setNewLanguages(e.target.value)}/>
+                </> : 
+                <>
+                {languages.map((language, index) => (
+                    <div key={index}>
+                        <p>{language}</p>
+                    </div>
+                ))}
+                </>
+            }
+            </form>
         </div>
     </div>
   )
