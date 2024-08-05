@@ -4,6 +4,7 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Headerbanner from "./components/Headerbanner";
 import Personalia from "./components/Personalia";
+import MainContent from "./components/MainContent";
 
 function App() {
   return (
@@ -13,12 +14,12 @@ function App() {
         <Personalia />
         </div>
         <Headerbanner />
-        <div className="main-content">
+        <MainContent>
           <About />
           <Experience />
           <Education />
           <Courses />
-        </div>
+        </MainContent>
       </div>
     </>
   );
