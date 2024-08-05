@@ -6,19 +6,21 @@ export default function Experience() {
 
   const [experience, setExperience] = useState([
     {
-      header: "Financial Accountant",
+      position: "Financial Accountant",
       date: "dec. 2017 - present",
       company: "Philips Electronics Eindhoven",
       description:
         "As a Financial Accountant I was responsible for the following:",
-      workFunctions: [
-        "Salaries",
-        "Financial overviews and Revenue rapports",
-        "Review and processing of invoices",
-        "Customer Care",
-      ],
+      duties: "Salaries",
     },
   ]);
+
+  // [
+  //   "Salaries",
+  //   "Financial overviews and Revenue rapports",
+  //   "Review and processing of invoices",
+  //   "Customer Care",
+  // ],
 
   const ExpComponent = () => {
 
@@ -28,17 +30,13 @@ export default function Experience() {
         {experience.map((exp, index) => (
           <div key={index}>
             <div className="experience-header">
-              <p>{exp.header}</p>
+              <p>{exp.position}</p>
               <p className="experience-date">{exp.date}</p>
             </div>
             <div className="experience-body">
               <p className="experience-title">{exp.company}</p>
               <p className="experience-discription">{exp.description}</p>
-              <ul>
-                {exp.workFunctions.map((work, index) => (
-                  <li key={index}>{work}</li>
-                ))}
-              </ul>
+                <p>- {exp.duties}</p>
             </div>
           </div>
         ))}
@@ -46,32 +44,59 @@ export default function Experience() {
     );
   };
 
+  {/* {exp.workFunctions.map((work, index) => (
+                  <li key={index}>{work}</li>
+                ))} */}
+
   const Input = () => {
+
+    const [formData, setFormData] = useState({
+      position: "",
+      date: "",
+      company: "",
+      description: "",
+      duties: ""
+    })
+
+    const handleChange = (e) => {
+
+      const {name, value} = e.target;
+
+      setFormData({
+        ...formData,
+        [name]: value,
+      })
+    }
 
     const handleSubmit = (e) => {
 
       e.preventDefault();
 
+      console.log(formData)
 
+      setExperience([
+        ...experience,
+        formData,
+      ])
     }
 
     return (
       <div>
         <form onSubmit={handleSubmit} className="add-exp-container">
           <label htmlFor="position">Position</label>
-          <input type="text" name="position"/>
+          <input type="text" name="position" onChange={handleChange}/>
           <label htmlFor="company">Company</label>
-          <input type="text" name="company" />
+          <input type="text" name="company" onChange={handleChange} />
           <label htmlFor="description">Description</label>
-          <input type="text" name="description" />
+          <input type="text" name="description" onChange={handleChange} />
+          <label htmlFor="date">Date</label>
+          <input type="text" name="date" onChange={handleChange} />
           <label htmlFor="duties">Duties</label>
-          <div className="exp-duties">
-          <input type="text" name="duties"/>
-          <input type="text" name="duties"/>
-          <input type="text" name="duties"/>
-          <input type="text" name="duties"/>
+          <input type="text" name="duties" onChange={handleChange}/>
+          {/* <input type="text" name="duties" onChange={handleChange}/> */}
+          {/* <input type="text" name="duties" onChange={handleChange}/> */}
+          {/* <input type="text" name="duties" onChange={handleChange}/> */}
           <button type="submit"><img className="add-button" src="public/add-button.svg" alt="add button" width="20px" /></button>
-          </div>
           </form> 
        </div>
     )
