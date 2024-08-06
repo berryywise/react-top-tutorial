@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-export default function Experience() {
 
+export default function Experience() {
+  
   const [isEditing, setIsEditing] = useState(false);
 
   const [experience, setExperience] = useState([
@@ -121,53 +122,55 @@ export default function Experience() {
     )
   }
 
-  const ToggleButton = () => {
-    return (
-      <>
-        {isEditing ? (
-          <button onClick={() => setIsEditing(false)} className="edit-button">
-            <img
-              src="public/checkmark.svg"
-              width="25px"
-              height="25px"
-              alt="Checkmark"
-            />{" "}
-          </button>
-        ) : (
-          <button className="edit-button" onClick={() => setIsEditing(true)}>
-            <svg
-              aria-label="edit"
-              xmlns="http://www.w3.org/2000/svg"
-              width="25px"
-              height="25px"
-              viewBox="0 0 24 24"
-            >
-              <rect width="24" height="24" fill="none"></rect>
-              <g
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              >
-                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path>
-              </g>
-            </svg>
-          </button>
-        )}
-      </>
-    );
-  };
+  
 
   return (
     <div className="experience-container">
       <div className="experience-main-title">
         <p>Work Experience</p>
-        <ToggleButton />
+        <ToggleButton state={isEditing} setState={setIsEditing} />
       </div>
       <ExpComponent />
       {isEditing && <Input />}
     </div>
   );
 }
+
+export const ToggleButton = ({state, setState}) => {
+  return (
+    <>
+      {state ? (
+        <button onClick={() => setState(false)} className="edit-button">
+          <img
+            src="public/checkmark.svg"
+            width="25px"
+            height="25px"
+            alt="Checkmark"
+          />{" "}
+        </button>
+      ) : (
+        <button className="edit-button" onClick={() => setState(true)}>
+          <svg
+            aria-label="edit"
+            xmlns="http://www.w3.org/2000/svg"
+            width="25px"
+            height="25px"
+            viewBox="0 0 24 24"
+          >
+            <rect width="24" height="24" fill="none"></rect>
+            <g
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+            >
+              <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path>
+            </g>
+          </svg>
+        </button>
+      )}
+    </>
+  );
+};
