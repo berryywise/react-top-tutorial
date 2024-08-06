@@ -115,7 +115,7 @@ const Courses = () => {
 
     return (
       <>
-      <button onClick={handleClick} ><img src="/pdf.svg" alt="Save as PDF" width="20px" />y</button>
+      <button onClick={handleClick} ><img src="/pdf.svg" alt="Save as PDF" width="20px" /></button>
 
       </>
     )
