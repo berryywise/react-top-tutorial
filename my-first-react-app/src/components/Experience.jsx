@@ -32,16 +32,19 @@ export default function Experience() {
             <div className="experience-header">
               <p>{exp.position}</p>
               <p className="experience-date">{exp.date}</p>
-              {isEditing && <img onClick={() => handleDelete(index)} className="trashcan" src="/trashcan.svg" alt="delete item" width="15px" /> } 
             </div>
             <div className="experience-body">
               <p className="experience-title">{exp.company}</p>
+             
               <p className="experience-discription">{exp.description}</p>
+              <div className="list-body">
                 <ul>
                   {exp.dutiesOne && <li>{exp.dutiesOne}</li>}
                   {exp.dutiesTwo && <li>{exp.dutiesTwo}</li>}
                   {exp.dutiesThree && <li>{exp.dutiesThree}</li>}
                 </ul>
+              {isEditing && <img onClick={() => handleDelete(index)} className="trashcan" src="/trashcan.svg" alt="delete item" width="15px" /> } 
+              </div>
             </div>
           </div>
         ))}
@@ -103,7 +106,7 @@ export default function Experience() {
         <form onSubmit={handleSubmit} className="add-exp-container">
           {error && <p style={{color: "red"}} >{error}</p>}
           <label htmlFor="position">Position</label>
-          <input type="text" name="position" onChange={handleChange}/>
+          <input type="text" name="position" autoFocus onChange={handleChange}/>
           <label htmlFor="company">Company</label>
           <input type="text" name="company" onChange={handleChange} />
           <label htmlFor="description">Description</label>

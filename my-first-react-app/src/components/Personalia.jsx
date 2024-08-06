@@ -84,7 +84,7 @@ export default function Personalia() {
             {isEditing ? 
             <>
             <p className="personalia-title">Name</p>
-            <input type="text" name="name" value={personalia.name} onChange={handlePersonaliaEdit} />
+            <input type="text" name="name" value={personalia.name} autoFocus onChange={handlePersonaliaEdit} />
             <p className="personalia-title">Address</p>
             <input type="text" name="address" value={personalia.address} onChange={handlePersonaliaEdit} />
             <p className="personalia-title">Phone Number</p>
@@ -133,7 +133,7 @@ export default function Personalia() {
                     <img onClick={() => handleDelete(index, interests, setInterests)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
                     </div>
                 ))}
-                <input type="text" placeholder="Add new interest" value={newInterest} onChange={e => setNewInterest(e.target.value)}/>
+                <input type="text" placeholder="Add new interest" value={newInterest} autoFocus onChange={e => setNewInterest(e.target.value)}/>
                 </> : 
                 <>
                 {interests.map((interest, index) => (
@@ -161,7 +161,7 @@ export default function Personalia() {
                         <img onClick={() => handleDelete(index, skills, setSkills)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
                     </div>
                 ))}
-                <input type="text" placeholder="Add new skill" value={newSkills} onChange={e => setNewSkills(e.target.value)}/>
+                <input type="text" placeholder="Add new skill" value={newSkills} autoFocus onChange={e => setNewSkills(e.target.value)}/>
                 </> : 
                 <>
                 {skills.map((skill, index) => (
@@ -189,7 +189,7 @@ export default function Personalia() {
                         <img onClick={() => handleDelete(index, languages, setLanguages)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
                     </div>
                 ))}
-                <input type="text" placeholder="Add new language" value={newLanguages} onChange={e => setNewLanguages(e.target.value)}/>
+                <input type="text" placeholder="Add new language" value={newLanguages} autoFocus onChange={e => setNewLanguages(e.target.value)}/>
                 </> : 
                 <>
                 {languages.map((language, index) => (

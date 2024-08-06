@@ -207,3 +207,8 @@ body {
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
+
+.list-body, .education-body, .courses-body {
+  display: flex;
+  justify-content: space-between;
+}

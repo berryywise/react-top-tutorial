@@ -30,10 +30,10 @@ export default function Education() {
                 {edu.title}
               </p>
               <p className="education-date">{edu.date}</p>
-              {isEditing && <img onClick={() => handleDelete(index)} className="trashcan" src="/trashcan.svg" alt="delete item" width="15px" /> } 
             </div>
             <div className="education-body">
               <p>{edu.school}</p>
+              {isEditing && <img onClick={() => handleDelete(index)} className="trashcan" src="/trashcan.svg" alt="delete item" width="15px" /> } 
             </div>
           </div>
         ))}
