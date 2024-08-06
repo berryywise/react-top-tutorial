@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ToggleButton } from "./Experience"
 
 export default function Headerbanner() {
   
@@ -19,8 +20,9 @@ export default function Headerbanner() {
           />
         </form>
       ) : (
-        <button aria-label="Edit Name" onClick={() => setIsEditing(true)}>{name}</button>
+        <p>{name}</p>
       )}
+      <ToggleButton state={isEditing} setState={setIsEditing} />
     </div>
   );
 }

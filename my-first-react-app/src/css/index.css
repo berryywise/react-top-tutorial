@@ -116,6 +116,16 @@ body {
 .about-container {
   padding-bottom: 15px;
   border-bottom: solid;
+  display: flex;
+}
+
+.about-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-input {
+  width: 50vw;
 }
 
 .header-title {
