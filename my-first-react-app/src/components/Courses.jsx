@@ -106,6 +106,21 @@ const Courses = () => {
     );
   };
 
+  const PrintPage = () => {
+
+    const handleClick = () => {
+      window.print()
+    }
+
+
+    return (
+      <>
+      <button onClick={handleClick} ><img src="/pdf.svg" alt="Save as PDF" width="20px" />y</button>
+
+      </>
+    )
+  }
+
   return (
     <div className="courses-container">
       <div className="courses-main-title">
@@ -114,6 +129,9 @@ const Courses = () => {
       </div>
       <Experience />
       {isEditing && <Input />}
+      <div className="courses-footer">
+      <PrintPage />
+      </div>
     </div>
   );
 };

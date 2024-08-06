@@ -123,6 +123,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px;
   grid-column: 1 / 3;
   font-size: xx-large;
 }
@@ -211,4 +212,10 @@ body {
 .list-body, .education-body, .courses-body {
   display: flex;
   justify-content: space-between;
+}
+
+.courses-footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
