@@ -78,7 +78,7 @@ export default function Personalia() {
             <div className="personalia-header-edit">
             <p className="personalia-title personalia">Personalia</p>
             <div>
-            {isEditing ? <button onClick={() => setIsEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button className="edit-button" onClick={() => setIsEditing(true)}><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
+            {isEditing ? <button onClick={() => setIsEditing(false)} className="edit-button" ><img src="checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button className="edit-button" onClick={() => setIsEditing(true)}><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
             </div>
             {isEditing ? 
@@ -122,7 +122,7 @@ export default function Personalia() {
         <div className='personalia-interests'>
             <div className="personalia-header-edit">
             <p className="personalia-title main-title interests">Interests</p>
-            {interestEditing ? <button onClick={() => setInterestEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setInterestEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
+            {interestEditing ? <button onClick={() => setInterestEditing(false)} className="edit-button" ><img src="checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setInterestEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
             <form onSubmit={handleInterestEdit}>
                 { interestEditing ? 
@@ -130,7 +130,7 @@ export default function Personalia() {
                 {interests.map((interest, index) => (
                     <div className="item-list-row" key={index}>
                     <p>{interest}</p>
-                    <img onClick={() => handleDelete(index, interests, setInterests)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
+                    <img onClick={() => handleDelete(index, interests, setInterests)} className="trashcan" src="trashcan.svg" alt="delete item" width="15px" />
                     </div>
                 ))}
                 <input type="text" placeholder="Add new interest" value={newInterest} autoFocus onChange={e => setNewInterest(e.target.value)}/>
@@ -149,7 +149,7 @@ export default function Personalia() {
         <div className='personalia-skills'>
             <div className="personalia-header-edit" >
             <p className="personalia-title main-title skills">Skills</p>
-            {skillsEditing ? <button onClick={() => setSkillsEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setSkillsEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
+            {skillsEditing ? <button onClick={() => setSkillsEditing(false)} className="edit-button" ><img src="checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setSkillsEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
             
             <form className="item-list" onSubmit={handleSkillEdit}>
@@ -158,7 +158,7 @@ export default function Personalia() {
                 {skills.map((skill, index) => (
                     <div className="item-list-row" key={index}>
                         <p>{skill}</p>
-                        <img onClick={() => handleDelete(index, skills, setSkills)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
+                        <img onClick={() => handleDelete(index, skills, setSkills)} className="trashcan" src="trashcan.svg" alt="delete item" width="15px" />
                     </div>
                 ))}
                 <input type="text" placeholder="Add new skill" value={newSkills} autoFocus onChange={e => setNewSkills(e.target.value)}/>
@@ -177,7 +177,7 @@ export default function Personalia() {
         <div className='personalia-languages'>
             <div className="personalia-header-edit">
             <p className="personalia-title main-title languages">Languages</p>
-        {languagesEditing ? <button onClick={() => setLanguagesEditing(false)} className="edit-button" ><img src="public/checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setLanguagesEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
+        {languagesEditing ? <button onClick={() => setLanguagesEditing(false)} className="edit-button" ><img src="checkmark.svg" width="25px" height="25px" alt="Checkmark" /> </button> : <button onClick={() => setLanguagesEditing(true)} className="edit-button"><svg aria-label="edit" xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"></rect><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"></path></g></svg></button>}
             </div>
             <form className="item-list" onSubmit={handleLanguagesEdit}>
                 { languagesEditing ? 
@@ -186,7 +186,7 @@ export default function Personalia() {
                     
                     <div className="item-list-row" key={index}>
                         <p>{language}</p>
-                        <img onClick={() => handleDelete(index, languages, setLanguages)} className="trashcan" src="public/trashcan.svg" alt="delete item" width="15px" />
+                        <img onClick={() => handleDelete(index, languages, setLanguages)} className="trashcan" src="trashcan.svg" alt="delete item" width="15px" />
                     </div>
                 ))}
                 <input type="text" placeholder="Add new language" value={newLanguages} autoFocus onChange={e => setNewLanguages(e.target.value)}/>

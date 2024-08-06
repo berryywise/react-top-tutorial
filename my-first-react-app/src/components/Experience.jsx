@@ -145,7 +145,7 @@ export const ToggleButton = ({state, setState}) => {
       {state ? (
         <button onClick={() => setState(false)} className="edit-button">
           <img
-            src="public/checkmark.svg"
+            src="checkmark.svg"
             width="25px"
             height="25px"
             alt="Checkmark"
