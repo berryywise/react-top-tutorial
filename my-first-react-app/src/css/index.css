@@ -201,3 +201,9 @@ body {
   display: flex;
   gap: 20px;
 }
+
+.input-boxes {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}

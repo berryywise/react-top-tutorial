@@ -11,18 +11,17 @@ export default function Experience() {
       company: "Philips Electronics Eindhoven",
       description:
         "As a Financial Accountant I was responsible for the following:",
-      duties: "Salaries",
+      dutiesOne: "Salaries",
+      dutiesTwo: "Financial overviews and Revenue rapports",
+      dutiesThree: "Review and processing of invoices",
     },
   ]);
 
-  // [
-  //   "Salaries",
-  //   "Financial overviews and Revenue rapports",
-  //   "Review and processing of invoices",
-  //   "Customer Care",
-  // ],
-
   const ExpComponent = () => {
+
+    const handleDelete = (index) => {
+      setExperience(experience.filter((_, i) => i !== index))
+    }
 
 
     return (
@@ -32,11 +31,16 @@ export default function Experience() {
             <div className="experience-header">
               <p>{exp.position}</p>
               <p className="experience-date">{exp.date}</p>
+              {isEditing && <img onClick={() => handleDelete(index)} className="trashcan" src="/trashcan.svg" alt="delete item" width="15px" /> } 
             </div>
             <div className="experience-body">
               <p className="experience-title">{exp.company}</p>
               <p className="experience-discription">{exp.description}</p>
-                <p>- {exp.duties}</p>
+                <ul>
+                  {exp.dutiesOne && <li>{exp.dutiesOne}</li>}
+                  {exp.dutiesTwo && <li>{exp.dutiesTwo}</li>}
+                  {exp.dutiesThree && <li>{exp.dutiesThree}</li>}
+                </ul>
             </div>
           </div>
         ))}
@@ -44,18 +48,18 @@ export default function Experience() {
     );
   };
 
-  {/* {exp.workFunctions.map((work, index) => (
-                  <li key={index}>{work}</li>
-                ))} */}
-
   const Input = () => {
+
+    const [error, setError] = useState("")
 
     const [formData, setFormData] = useState({
       position: "",
       date: "",
       company: "",
       description: "",
-      duties: ""
+      dutiesOne: "",
+      dutiesTwo: "",
+      dutiesThree: "",
     })
 
     const handleChange = (e) => {
@@ -72,17 +76,31 @@ export default function Experience() {
 
       e.preventDefault();
 
-      console.log(formData)
+      const {position, date, company, description, dutiesOne, dutiesTwo, dutiesThree} = formData;
+
+      if(!position || !date || !company || !description || !dutiesOne || !dutiesTwo || !dutiesThree) {
+        setError("All fields are required.")
+        return;
+      }
+
+      if(experience.length === 3) {
+        setError("Maximum of 3 experiences.")
+        return;
+      } 
+
 
       setExperience([
         ...experience,
         formData,
       ])
+      setIsEditing(false)
+      setError("");
     }
 
     return (
       <div>
         <form onSubmit={handleSubmit} className="add-exp-container">
+          {error && <p style={{color: "red"}} >{error}</p>}
           <label htmlFor="position">Position</label>
           <input type="text" name="position" onChange={handleChange}/>
           <label htmlFor="company">Company</label>
@@ -92,11 +110,12 @@ export default function Experience() {
           <label htmlFor="date">Date</label>
           <input type="text" name="date" onChange={handleChange} />
           <label htmlFor="duties">Duties</label>
-          <input type="text" name="duties" onChange={handleChange}/>
-          {/* <input type="text" name="duties" onChange={handleChange}/> */}
-          {/* <input type="text" name="duties" onChange={handleChange}/> */}
-          {/* <input type="text" name="duties" onChange={handleChange}/> */}
-          <button type="submit"><img className="add-button" src="public/add-button.svg" alt="add button" width="20px" /></button>
+          <div className="input-boxes">
+          <input type="text" name="dutiesOne" onChange={handleChange}/>
+          <input type="text" name="dutiesTwo" onChange={handleChange}/>
+          <input type="text" name="dutiesThree" onChange={handleChange}/>
+          </div>
+                    <button type="submit"><img className="add-button" src="/add-button.svg" alt="add button" width="20px" /></button>
           </form> 
        </div>
     )
